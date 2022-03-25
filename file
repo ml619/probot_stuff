@@ -1,1 +1,10 @@
+module.exports = (app) => {
+    app.on("pull_requests.opened", async (context) => {
+    
+    
+    const params = context.issue({ body: "Hello World!" });
 
+    // Post a comment on the issue
+    return context.octokit.issues.createComment(params);
+  });
+};
